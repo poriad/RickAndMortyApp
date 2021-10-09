@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RickAndMortyApp</string>
+    <string name="menu_item_1">Inicio</string>
+    <string name="menu_item_2">Personajes</string>
+    <string name="menu_item_3">Episodios</string>
+    <string name="character_title">Detalle del Personaje</string>
+</resources>
