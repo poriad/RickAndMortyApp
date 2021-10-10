@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RickAndMortyApp">
         <activity android:name=".ui.view.MainActivity"
-            android:label="Rick And Morty App">
+            android:label="Rick And Morty App"
+            android:icon="@drawable/arrow_right_icon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +25,8 @@
 
         </activity>
         <activity android:name=".ui.view.CharacterDetailActivity"
-            android:label="@string/character_title">
+            android:label="@string/character_title"
+            android:icon="@drawable/arrow_right_icon" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.view.MainActivity" />

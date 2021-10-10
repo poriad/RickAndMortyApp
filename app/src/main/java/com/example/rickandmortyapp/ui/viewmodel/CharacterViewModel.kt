@@ -7,6 +7,7 @@ import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.data.model.Characters
 import com.example.rickandmortyapp.domain.GetCharacterUseCase
 import com.example.rickandmortyapp.domain.GetCharactersUseCase
+import com.example.rickandmortyapp.ui.view.MainActivity
 import kotlinx.coroutines.launch
 
 class CharacterViewModel: ViewModel() {
@@ -16,18 +17,30 @@ class CharacterViewModel: ViewModel() {
 
     //var getCharacterUseCase = GetCharacterUseCase()
     var getCharactersUseCase = GetCharactersUseCase()
-    var page: Int = 5
 
     fun onCreate() {
         viewModelScope.launch {
 
            // var result = getCharacterUseCase()
-            var result = getCharactersUseCase(page)
+            val result = getCharactersUseCase()
 
             if (result != null) {
-                //characterModel.postValue(result);
                 charactersModel.postValue(result.results)
             }
         }
+    }
+
+    fun onClick() {
+        viewModelScope.launch {
+            val result = getCharactersUseCase()
+
+            if (result != null) {
+                charactersModel.postValue(result.results)
+            }
+        }
+    }
+
+    companion object {
+        var characterPage = 1
     }
 }
