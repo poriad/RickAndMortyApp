@@ -14,26 +14,28 @@
         <Button
             android:id="@+id/left_page_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="match_parent"
+            android:text="@string/back_button"
+            android:layout_marginLeft="10dp"
             />
 
         <TextView
+            android:id="@+id/page_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Página 3"
-            android:textSize="23dp"
+            android:height="50dp"
+            android:text="@string/list_character_text"
+            android:textSize="23sp"
             android:textColor="@color/rickandmorty"
-            android:gravity="center_horizontal" />
+            android:gravity="center" />
 
         <Button
             android:id="@+id/right_page_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
+            android:layout_height="match_parent"
+            android:text="@string/next_button"
+            android:layout_marginRight="10dp"
             />
     </LinearLayout>
 

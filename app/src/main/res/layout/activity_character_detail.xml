@@ -7,6 +7,64 @@
     tools:context=".ui.view.CharacterDetailActivity"
     android:id="@+id/characterDetailContainer">
 
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="62dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:elevation="5dp">
+
+            <ImageView
+                android:id="@+id/characterDetailImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/characterDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:id="@+id/characterDetailStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:id="@+id/characterDetailSpecie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Specie"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:id="@+id/characterDetailOrigin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Origin"
+                    android:textSize="22dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"

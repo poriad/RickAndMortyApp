@@ -4,4 +4,7 @@
     <string name="menu_item_2">Personajes</string>
     <string name="menu_item_3">Episodios</string>
     <string name="character_title">Detalle del Personaje</string>
+    <string name="back_button">Back</string>
+    <string name="list_character_text">1 Of 34</string>
+    <string name="next_button">Next</string>
 </resources>

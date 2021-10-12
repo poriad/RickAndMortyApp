@@ -31,18 +31,30 @@ class MainActivity : AppCompatActivity() {
         binding.rightPageId.setOnClickListener {
             characterPage++
             characterViewModel.onClick()
-            if (characterPage == 1) {
+            binding.pageNumber.text = "${characterPage} Of 34"
+            if (characterPage == 1 ) {
                 binding.leftPageId.setEnabled(false)
             } else {
                 binding.leftPageId.setEnabled(true)
+            }
+
+            if (characterPage == 34 ) {
+                binding.rightPageId.setEnabled(false)
+            } else {
+                binding.rightPageId.setEnabled(true)
             }
         }
 
         binding.leftPageId.setOnClickListener {
             characterPage--
             characterViewModel.onClick()
+            binding.pageNumber.text = "${characterPage} Of 34"
             if (characterPage == 1) {
                 binding.leftPageId.setEnabled(false)
+            }
+
+            if (characterPage < 34 ) {
+                binding.rightPageId.setEnabled(true)
             }
         }
 

@@ -11,9 +11,9 @@ class RickAndMortyService {
 
     private val retrofit: Retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getCharacter(): Character {
+    suspend fun getCharacter(id: Int): Character {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(RickAndMortyApiClient::class.java).getCharacter()
+            val response = retrofit.create(RickAndMortyApiClient::class.java).getCharacter(id)
             response.body() ?: Character(0,"", "", "", "", "")
         }
     }

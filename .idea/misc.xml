@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_main.xml" value="0.16084093211752787" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_character_detail.xml" value="0.33" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/character_card.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>

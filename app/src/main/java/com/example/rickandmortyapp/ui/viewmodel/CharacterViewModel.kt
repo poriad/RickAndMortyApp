@@ -14,8 +14,10 @@ class CharacterViewModel: ViewModel() {
 
     //var characterModel = MutableLiveData<Character>()
     var charactersModel = MutableLiveData<List<Character>>()
+    var characterModel = MutableLiveData<Character>()
 
-    //var getCharacterUseCase = GetCharacterUseCase()
+    var getCharacterUseCase = GetCharacterUseCase()
+
     var getCharactersUseCase = GetCharactersUseCase()
 
     fun onCreate() {
@@ -36,6 +38,20 @@ class CharacterViewModel: ViewModel() {
 
             if (result != null) {
                 charactersModel.postValue(result.results)
+            }
+        }
+    }
+
+
+    // Refactor this
+    fun onCreateCharacter(id: Int) {
+        viewModelScope.launch {
+
+            // var result = getCharacterUseCase()
+            val result = getCharacterUseCase(id)
+
+            if (result != null) {
+                characterModel.postValue(result)
             }
         }
     }

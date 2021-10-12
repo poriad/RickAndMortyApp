@@ -10,8 +10,8 @@ class RickAndMortyRepository {
 
     private val api = RickAndMortyService()
 
-    suspend fun getCharacter(): Character {
-        val response = api.getCharacter()
+    suspend fun getCharacter(id: Int): Character {
+        val response = api.getCharacter(id)
         CharacterProvider.character = response
         return response;
     }

@@ -11,7 +11,6 @@ import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.data.model.holder.CharactersViewHolder
 import com.example.rickandmortyapp.ui.view.CharacterDetailActivity
-import com.example.rickandmortyapp.ui.view.EpisodeActivity
 
 
 class CharactersAdapter(private val characters: List<Character>) : RecyclerView.Adapter<CharactersViewHolder>() {

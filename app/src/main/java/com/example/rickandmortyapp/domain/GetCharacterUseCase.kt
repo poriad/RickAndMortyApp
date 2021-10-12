@@ -6,5 +6,5 @@ class GetCharacterUseCase {
 
     private val rickAndMortyRepository = RickAndMortyRepository()
 
-    suspend operator fun invoke() = rickAndMortyRepository.getCharacter()
+    suspend operator fun invoke(id: Int) = rickAndMortyRepository.getCharacter(id)
 }
