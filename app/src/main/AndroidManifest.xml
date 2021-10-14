@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rickandmortyapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RickAndMortyApp">
-        <activity android:name=".ui.view.MainActivity"
-            android:label="Rick And Morty App"
-            android:icon="@drawable/arrow_right_icon">
+        <activity
+            android:name=".ui.view.SplashScreenActivity"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,12 +22,20 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.view.MainActivity"
+            android:icon="@drawable/arrow_right_icon"
+            android:label="Rick And Morty App">
+        </activity>
+
         <activity android:name=".ui.view.EpisodeActivity">
 
         </activity>
-        <activity android:name=".ui.view.CharacterDetailActivity"
-            android:label="@string/character_title"
-            android:icon="@drawable/arrow_right_icon" >
+
+        <activity
+            android:name=".ui.view.CharacterDetailActivity"
+            android:icon="@drawable/arrow_right_icon"
+            android:label="@string/character_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.view.MainActivity" />

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val characterViewModel: CharacterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,39 +27,31 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         characterViewModel.onCreate()
-        binding.leftPageId.setEnabled(false)
+        binding.leftPageId.isEnabled = false
 
         binding.rightPageId.setOnClickListener {
             characterPage++
             characterViewModel.onClick()
-            binding.pageNumber.text = "${characterPage} Of 34"
-            if (characterPage == 1 ) {
-                binding.leftPageId.setEnabled(false)
-            } else {
-                binding.leftPageId.setEnabled(true)
-            }
+            binding.pageNumber.text = "$characterPage Of 34"
+            binding.leftPageId.isEnabled = characterPage != 1
 
-            if (characterPage == 34 ) {
-                binding.rightPageId.setEnabled(false)
-            } else {
-                binding.rightPageId.setEnabled(true)
-            }
+            binding.rightPageId.isEnabled = characterPage != 34
         }
 
         binding.leftPageId.setOnClickListener {
             characterPage--
             characterViewModel.onClick()
-            binding.pageNumber.text = "${characterPage} Of 34"
+            binding.pageNumber.text = "$characterPage Of 34"
             if (characterPage == 1) {
-                binding.leftPageId.setEnabled(false)
+                binding.leftPageId.isEnabled = false
             }
 
             if (characterPage < 34 ) {
-                binding.rightPageId.setEnabled(true)
+                binding.rightPageId.isEnabled = true
             }
         }
 
-        characterViewModel.charactersModel.observe(this, Observer {
+        characterViewModel.charactersModel.observe(this, {
             adapter = CharactersAdapter(it)
             binding.characterRecicler.layoutManager = LinearLayoutManager(this)
             binding.characterRecicler.adapter = adapter

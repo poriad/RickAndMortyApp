@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/arrow_right_icon.xml" value="0.5703125" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/bg_gradient.xml" value="0.346875" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/border.xml" value="0.5703125" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/characters_icon.xml" value="0.5703125" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/episodes_icon.xml" value="0.5703125" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/home_icon.xml" value="0.346875" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/splas_background.xml" value="0.346875" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/drawable/splash_background.xml" value="0.5703125" />
         <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_character_detail.xml" value="0.33" />
         <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/activity_splash.xml" value="0.3307291666666667" />
         <entry key="..\:/Proyectos Personales/RickAndMortyApp/app/src/main/res/layout/character_card.xml" value="0.5541666666666667" />
       </map>
     </option>
