@@ -3,6 +3,7 @@ package com.example.rickandmortyapp.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmortyapp.R
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.arrow_right_icon)
+        supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         characterViewModel.onCreate()
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             adapter = CharactersAdapter(it)
             binding.characterRecicler.layoutManager = LinearLayoutManager(this)
             binding.characterRecicler.adapter = adapter
+        })
+
+        characterViewModel.isLoading.observe(this, {
+            binding.progressBar.isVisible = it
         })
 
     }

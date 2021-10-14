@@ -15,6 +15,7 @@ class CharacterViewModel: ViewModel() {
     //var characterModel = MutableLiveData<Character>()
     var charactersModel = MutableLiveData<List<Character>>()
     var characterModel = MutableLiveData<Character>()
+    val isLoading = MutableLiveData<Boolean>()
 
     var getCharacterUseCase = GetCharacterUseCase()
 
@@ -25,9 +26,11 @@ class CharacterViewModel: ViewModel() {
 
            // var result = getCharacterUseCase()
             val result = getCharactersUseCase()
+            isLoading.postValue(true)
 
             if (result != null) {
                 charactersModel.postValue(result.results)
+                isLoading.postValue(false)
             }
         }
     }
@@ -35,9 +38,11 @@ class CharacterViewModel: ViewModel() {
     fun onClick() {
         viewModelScope.launch {
             val result = getCharactersUseCase()
+            isLoading.postValue(true)
 
             if (result != null) {
                 charactersModel.postValue(result.results)
+                isLoading.postValue(false)
             }
         }
     }
@@ -49,9 +54,11 @@ class CharacterViewModel: ViewModel() {
 
             // var result = getCharacterUseCase()
             val result = getCharacterUseCase(id)
+            isLoading.postValue(true)
 
             if (result != null) {
                 characterModel.postValue(result)
+                isLoading.postValue(false)
             }
         }
     }

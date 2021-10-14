@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
@@ -33,6 +34,10 @@ class CharacterDetailActivity: AppCompatActivity() {
             binding.characterDetailSpecie.text = it.species
             binding.characterDetailOrigin.text = it.gender
 
+        })
+
+        characterViewModel.isLoading.observe(this, {
+            binding.progressBarCharacter.isVisible = it
         })
     }
 }
