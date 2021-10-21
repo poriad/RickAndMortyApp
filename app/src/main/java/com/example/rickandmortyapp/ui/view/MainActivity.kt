@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
@@ -28,19 +27,22 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        characterViewModel.isLoading.observe(this, {
+            binding.progressBar.isVisible = it
+        })
+
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.page_1 -> {
                     startActivity(Intent(this, MainActivity::class.java))
                     false
                 }
-                R.id.page_2 -> {
+                R.id.page_3 -> {
                     startActivity(Intent(this, EpisodeActivity::class.java))
                     false
                 }
 
                 else -> {
-                    startActivity(Intent(this, EpisodeActivity::class.java))
                     false
                 }
             }
@@ -74,10 +76,6 @@ class MainActivity : AppCompatActivity() {
             adapter = CharactersAdapter(it)
             binding.characterRecicler.layoutManager = LinearLayoutManager(this)
             binding.characterRecicler.adapter = adapter
-        })
-
-        characterViewModel.isLoading.observe(this, {
-            binding.progressBar.isVisible = it
         })
 
     }

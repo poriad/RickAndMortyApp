@@ -23,12 +23,12 @@ class CharacterViewModel: ViewModel() {
 
     fun onCreate() {
         viewModelScope.launch {
-
+            isLoading.postValue(true)
            // var result = getCharacterUseCase()
             val result = getCharactersUseCase()
-            isLoading.postValue(true)
 
-            if (result != null) {
+
+            if (result != null || result.results.isEmpty()) {
                 charactersModel.postValue(result.results)
                 isLoading.postValue(false)
             }
@@ -37,8 +37,8 @@ class CharacterViewModel: ViewModel() {
 
     fun onClick() {
         viewModelScope.launch {
-            val result = getCharactersUseCase()
             isLoading.postValue(true)
+            val result = getCharactersUseCase()
 
             if (result != null) {
                 charactersModel.postValue(result.results)

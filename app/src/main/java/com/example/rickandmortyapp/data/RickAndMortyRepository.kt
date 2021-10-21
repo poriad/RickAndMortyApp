@@ -1,9 +1,6 @@
 package com.example.rickandmortyapp.data
 
-import com.example.rickandmortyapp.data.model.Character
-import com.example.rickandmortyapp.data.model.CharacterProvider
-import com.example.rickandmortyapp.data.model.Characters
-import com.example.rickandmortyapp.data.model.CharactersProvider
+import com.example.rickandmortyapp.data.model.*
 import com.example.rickandmortyapp.data.network.RickAndMortyService
 
 class RickAndMortyRepository {
@@ -20,5 +17,11 @@ class RickAndMortyRepository {
         val response = api.getCharacters(page)
         CharactersProvider.characters = response
         return response;
+    }
+
+    suspend fun getEpisodes(episodes: String): List<Episode> {
+        val response = api.getEpisodes(episodes)
+        EpisodesProvider.episodes = response
+        return response
     }
 }
