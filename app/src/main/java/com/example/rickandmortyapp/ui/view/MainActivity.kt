@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.databinding.ActivityMainBinding
-import com.example.rickandmortyapp.ui.viewmodel.CharacterViewModel
-import com.example.rickandmortyapp.ui.viewmodel.CharacterViewModel.Companion.characterPage
+import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
+import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel.Companion.characterPage
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var adapter: CharactersAdapter
-    private val characterViewModel: CharacterViewModel by viewModels()
+    private val charactersViewModel: CharactersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         overridePendingTransition(R.anim.fadein, R.anim.fadeout)
@@ -27,32 +27,32 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        characterViewModel.isLoading.observe(this, {
+        charactersViewModel.isLoading.observe(this, {
             binding.progressBar.isVisible = it
         })
 
+        // Refactor
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.page_1 -> {
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, HomeActivity::class.java))
                     false
                 }
                 R.id.page_3 -> {
                     startActivity(Intent(this, EpisodeActivity::class.java))
                     false
                 }
-
                 else -> {
                     false
                 }
             }
         }
-        characterViewModel.onCreate()
+        charactersViewModel.onCreate()
         binding.leftPageId.isEnabled = false
 
         binding.rightPageId.setOnClickListener {
             characterPage++
-            characterViewModel.onClick()
+            charactersViewModel.onClick()
             binding.pageNumber.text = "$characterPage Of 34"
             binding.leftPageId.isEnabled = characterPage != 1
 
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.leftPageId.setOnClickListener {
             characterPage--
-            characterViewModel.onClick()
+            charactersViewModel.onClick()
             binding.pageNumber.text = "$characterPage Of 34"
             if (characterPage == 1) {
                 binding.leftPageId.isEnabled = false
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        characterViewModel.charactersModel.observe(this, {
+        charactersViewModel.charactersModel.observe(this, {
             adapter = CharactersAdapter(it)
             binding.characterRecicler.layoutManager = LinearLayoutManager(this)
             binding.characterRecicler.adapter = adapter

@@ -11,27 +11,26 @@
         android:roundIcon="@mipmap/rick"
         android:supportsRtl="true"
         android:theme="@style/Theme.RickAndMortyApp">
+        <activity android:name=".ui.view.EpisodeDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.view.MainActivity" />
+        </activity>
+        <activity android:name=".ui.view.HomeActivity"></activity>
         <activity
             android:name=".ui.view.SplashScreenActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.view.MainActivity"
-            android:icon="@mipmap/rick"
-            android:label="Rick And Morty App">
-        </activity>
-
-        <activity android:name=".ui.view.EpisodeActivity">
-
-        </activity>
-
+            android:icon="@mipmap/rick" />
+        <activity android:name=".ui.view.EpisodeActivity" />
         <activity
             android:name=".ui.view.CharacterDetailActivity"
             android:icon="@mipmap/rick"

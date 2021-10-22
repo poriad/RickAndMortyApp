@@ -19,6 +19,12 @@ class RickAndMortyRepository {
         return response;
     }
 
+    suspend fun getCharactersByEpisode(characters: String): List<Character> {
+        val response = api.getCharactersByEpisodes(characters)
+        CharactersByEpisodeProvider.charactersByEpisode = response
+        return response
+    }
+
     suspend fun getEpisodes(episodes: String): List<Episode> {
         val response = api.getEpisodes(episodes)
         EpisodesProvider.episodes = response

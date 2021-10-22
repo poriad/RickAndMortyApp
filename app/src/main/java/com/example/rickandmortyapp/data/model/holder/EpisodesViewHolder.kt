@@ -10,5 +10,6 @@ class EpisodesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(episode: Episode) {
         binding.episodeTitle.text = episode.name
+        binding.episodeNumber.text = episode.episode
     }
 }

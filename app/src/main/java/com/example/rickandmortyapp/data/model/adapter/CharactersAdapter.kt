@@ -28,7 +28,6 @@ class CharactersAdapter(private val characters: List<Character>) : RecyclerView.
             val switchActivityIntent = Intent(contextParent, CharacterDetailActivity::class.java)
             switchActivityIntent.putExtra("characterId", characters[position].id)
             startActivity(contextParent!!, switchActivityIntent, null)
-            Toast.makeText(contextParent, characters[position].name, Toast.LENGTH_SHORT).show()
         }
         return holder.bind(item)
     }

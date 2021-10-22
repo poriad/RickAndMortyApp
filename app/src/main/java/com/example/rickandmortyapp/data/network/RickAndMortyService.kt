@@ -26,6 +26,13 @@ class RickAndMortyService {
         }
     }
 
+    suspend fun getCharactersByEpisodes(characters: String): List<Character> {
+        return withContext((Dispatchers.IO)) {
+            val response = retrofit.create(RickAndMortyApiClient::class.java).getCharactersByEpisodes(characters)
+            response.body() ?: emptyList()
+        }
+    }
+
     suspend fun getEpisodes(episodes: String): List<Episode> {
         return withContext(Dispatchers.IO) {
             val response = retrofit.create(RickAndMortyApiClient::class.java).getEpisodes(episodes)

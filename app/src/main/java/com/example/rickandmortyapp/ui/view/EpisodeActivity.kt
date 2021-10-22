@@ -2,7 +2,6 @@ package com.example.rickandmortyapp.ui.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -65,11 +64,11 @@ class EpisodeActivity: AppCompatActivity() {
             }
         })
 
-
+        // Refactor
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.page_1 -> {
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, HomeActivity::class.java))
                     false
                 }
                 R.id.page_2 -> {

@@ -4,5 +4,6 @@ data class Episode(
     val id: Int,
     val name: String,
     val airDate: String,
-    val episode: String
+    val episode: String,
+    val characters: Array<String>
 )

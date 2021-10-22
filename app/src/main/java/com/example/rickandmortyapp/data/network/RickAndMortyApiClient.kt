@@ -18,4 +18,7 @@ interface RickAndMortyApiClient {
 
     @GET("episode/{episodes}")
     suspend fun getEpisodes(@Path("episodes") episodes: String): Response<List<Episode>>
+
+    @GET("character/{characters}")
+    suspend fun getCharactersByEpisodes(@Path("characters") characters: String): Response<List<Character>>
 }

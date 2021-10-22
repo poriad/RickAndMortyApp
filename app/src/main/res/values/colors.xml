@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="rickandmorty">#6bbfe3</color>
+    <color name="rickandmortytwo">#47b6db</color>
 </resources>

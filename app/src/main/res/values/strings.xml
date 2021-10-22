@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RickAndMortyApp</string>
+    <string name="app_name">WikiRick</string>
     <string name="menu_item_1">Inicio</string>
     <string name="menu_item_2">Personajes</string>
     <string name="menu_item_3">Episodios</string>
