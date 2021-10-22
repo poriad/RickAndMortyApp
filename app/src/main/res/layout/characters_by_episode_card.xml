@@ -3,20 +3,19 @@
     android:id="@+id/episodeCard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="150dp"
+    android:layout_width="170dp"
+    android:layout_height="170dp"
     android:elevation="12dp"
-    app:cardCornerRadius="75dp"
+    app:cardCornerRadius="35dp"
     android:layout_centerHorizontal="true"
-    android:innerRadius="0dp"
-    android:layout_margin="10dp"
-    android:shape="ring"
-    android:thicknessRatio="1.9">
+    android:layout_margin="15dp"
+    android:foreground="@drawable/border_image">
     <ImageView
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:layout_width="match_parent"
         android:id="@+id/characterImage"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        >
     </ImageView>
 </androidx.cardview.widget.CardView>

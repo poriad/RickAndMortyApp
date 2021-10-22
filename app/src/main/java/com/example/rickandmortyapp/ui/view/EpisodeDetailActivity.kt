@@ -22,7 +22,14 @@ class EpisodeDetailActivity : AppCompatActivity() {
         binding = ActivityEpisodeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val characterArray= intent.getStringArrayExtra("episodeArray") as Array<String>
+        val characterArray = intent.getStringArrayExtra("episodeArray") as Array<String>
+        val episodeName = intent.getStringExtra("episodeName")
+        val episodeDate = intent.getStringExtra("episodeDate")
+        val episodeNumber = intent.getStringExtra("episodeNumber")
+
+        binding.episodeDate.text = episodeDate
+        binding.episodeName.text = episodeName
+        binding.episodeNumber.text = episodeNumber
 
         var result = ""
         characterArray.map { characterURL ->

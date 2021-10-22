@@ -5,14 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.EpisodeDetailActivity">
+    <ImageView
+        android:id="@+id/imageEpisode"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/episode"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageEpisode"
+            android:background="@drawable/degradation_episdode_detail"
             app:layout_constraintBottom_toTopOf="@+id/textCharactersAppears"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
             <TextView
                 android:id="@+id/episodeDetail"
                 android:layout_width="match_parent"
@@ -21,22 +32,28 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="23sp"
+                android:layout_marginBottom="15dp"
                 />
             <TextView
+                android:id="@+id/episodeNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="S1E01"
                 android:gravity="center"
                 android:textSize="18sp"
+                android:layout_marginBottom="15dp"
                 />
             <TextView
+                android:id="@+id/episodeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot"
                 android:gravity="center"
                 android:textSize="18sp"
+                android:layout_marginBottom="15dp"
                 />
             <TextView
+                android:id="@+id/episodeDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="December 2, 2013"
@@ -53,13 +70,13 @@
             android:text="In this Episode appears..."
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:textSize="14sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/episodeWithCharactersRecyclerView"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/episodeWithCharactersRecyclerView"
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="200dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"

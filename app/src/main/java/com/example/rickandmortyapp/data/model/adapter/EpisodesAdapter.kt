@@ -26,6 +26,9 @@ class EpisodesAdapter(private val episodes: List<Episode>) : RecyclerView.Adapte
         holder.itemView.setOnClickListener {
             val switchActivityIntent = Intent(contextParent, EpisodeDetailActivity::class.java)
             switchActivityIntent.putExtra("episodeId", item.id)
+            switchActivityIntent.putExtra("episodeName", item.name)
+            switchActivityIntent.putExtra("episodeDate", item.airDate)
+            switchActivityIntent.putExtra("episodeNumber", item.episode)
             switchActivityIntent.putExtra("episodeArray", item.characters)
             ContextCompat.startActivity(contextParent!!, switchActivityIntent, null)
         }

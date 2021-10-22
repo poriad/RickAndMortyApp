@@ -14,7 +14,7 @@
         <activity android:name=".ui.view.EpisodeDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.view.MainActivity" />
+                android:value=".ui.view.EpisodeActivity" />
         </activity>
         <activity android:name=".ui.view.HomeActivity"></activity>
         <activity
