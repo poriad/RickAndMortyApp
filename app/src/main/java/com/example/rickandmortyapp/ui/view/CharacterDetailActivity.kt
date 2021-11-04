@@ -9,7 +9,9 @@ import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.databinding.ActivityCharacterDetailBinding
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharacterDetailActivity: AppCompatActivity() {
 
     private lateinit var binding : ActivityCharacterDetailBinding;

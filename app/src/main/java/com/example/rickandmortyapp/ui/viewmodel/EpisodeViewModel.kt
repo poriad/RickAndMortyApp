@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.domain.GetCharactersByEpisodeUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class EpisodeViewModel: ViewModel() {
+@HiltViewModel
+class EpisodeViewModel @Inject constructor(
+    private val getCharactersByEpisodeUseCase: GetCharactersByEpisodeUseCase
+): ViewModel() {
     private var isLoading = MutableLiveData<Boolean>()
     var charactersByEpisode = MutableLiveData<List<Character>>()
-
-    private var getCharactersByEpisodeUseCase = GetCharactersByEpisodeUseCase()
 
     fun onCreate(characters: String) {
         viewModelScope.launch {

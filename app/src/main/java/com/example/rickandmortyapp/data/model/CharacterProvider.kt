@@ -1,7 +1,9 @@
 package com.example.rickandmortyapp.data.model
 
-class CharacterProvider {
-    companion object {
-        var character: Character = Character(0, "", "", "", "","")
-    }
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class CharacterProvider @Inject constructor() {
+    var character: Character = Character(0, "", "", "", "","")
 }

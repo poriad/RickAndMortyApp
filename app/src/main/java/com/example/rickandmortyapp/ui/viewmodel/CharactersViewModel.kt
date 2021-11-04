@@ -4,23 +4,23 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyapp.data.model.Character
-import com.example.rickandmortyapp.data.model.Characters
 import com.example.rickandmortyapp.domain.GetCharacterUseCase
 import com.example.rickandmortyapp.domain.GetCharactersUseCase
-import com.example.rickandmortyapp.ui.view.MainActivity
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CharactersViewModel: ViewModel() {
+@HiltViewModel
+class CharactersViewModel @Inject constructor(
+    private val getCharacterUseCase : GetCharacterUseCase,
+    private val getCharactersUseCase : GetCharactersUseCase
+): ViewModel() {
 
     //var characterModel = MutableLiveData<Character>()
     var charactersModel = MutableLiveData<List<Character>>()
     var characterModel = MutableLiveData<Character>()
     val isLoading = MutableLiveData<Boolean>()
-
-    var getCharacterUseCase = GetCharacterUseCase()
-
-    var getCharactersUseCase = GetCharactersUseCase()
-
+    
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)

@@ -11,14 +11,15 @@ import com.example.rickandmortyapp.data.model.adapter.EpisodesAdapter
 import com.example.rickandmortyapp.databinding.ActivityEpisodeBinding
 import com.example.rickandmortyapp.ui.viewmodel.EpisodesViewModel
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EpisodeActivity: AppCompatActivity() {
     private lateinit var adapter : EpisodesAdapter
     private lateinit var binding : ActivityEpisodeBinding;
     private val episodeViewModel : EpisodesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         super.onCreate(savedInstanceState)
 
         binding = ActivityEpisodeBinding.inflate(layoutInflater)
@@ -69,10 +70,12 @@ class EpisodeActivity: AppCompatActivity() {
             when(menuItem.itemId) {
                 R.id.page_1 -> {
                     startActivity(Intent(this, HomeActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
                     false
                 }
                 R.id.page_2 -> {
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, CharacterActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
                     false
                 }
 
@@ -81,5 +84,10 @@ class EpisodeActivity: AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }

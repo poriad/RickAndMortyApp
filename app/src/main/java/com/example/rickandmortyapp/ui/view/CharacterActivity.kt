@@ -11,15 +11,16 @@ import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.databinding.ActivityMainBinding
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel.Companion.characterPage
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class CharacterActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: CharactersAdapter
     private val charactersViewModel: CharactersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,13 +34,15 @@ class MainActivity : AppCompatActivity() {
 
         // Refactor
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
-            when(menuItem.itemId) {
+            when (menuItem.itemId) {
                 R.id.page_1 -> {
                     startActivity(Intent(this, HomeActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
                     false
                 }
                 R.id.page_3 -> {
                     startActivity(Intent(this, EpisodeActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     false
                 }
                 else -> {
@@ -67,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 binding.leftPageId.isEnabled = false
             }
 
-            if (characterPage < 34 ) {
+            if (characterPage < 34) {
                 binding.rightPageId.isEnabled = true
             }
         }

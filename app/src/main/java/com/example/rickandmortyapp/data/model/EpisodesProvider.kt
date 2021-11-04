@@ -1,7 +1,9 @@
 package com.example.rickandmortyapp.data.model
 
-class EpisodesProvider {
-    companion object {
-        var episodes: List<Episode> = emptyList()
-    }
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class EpisodesProvider @Inject constructor() {
+    var episodes: List<Episode> = emptyList()
 }

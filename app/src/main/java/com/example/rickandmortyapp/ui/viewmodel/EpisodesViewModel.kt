@@ -8,19 +8,19 @@ import com.example.rickandmortyapp.domain.GetEpisodesSeasonFourUseCase
 import com.example.rickandmortyapp.domain.GetEpisodesSeasonOneUseCase
 import com.example.rickandmortyapp.domain.GetEpisodesSeasonThreeUseCase
 import com.example.rickandmortyapp.domain.GetEpisodesSeasonTwoUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class EpisodesViewModel: ViewModel() {
-
+@HiltViewModel
+class EpisodesViewModel @Inject constructor(
+    private val episodesSeasonOneUseCase: GetEpisodesSeasonOneUseCase,
+    private val episodesSeasonTwoUseCase: GetEpisodesSeasonTwoUseCase,
+    private val episodesSeasonThreeUseCase: GetEpisodesSeasonThreeUseCase,
+    private val episodesSeasonFourUseCase: GetEpisodesSeasonFourUseCase
+): ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
-
-    var episodesSeasonOneUseCase = GetEpisodesSeasonOneUseCase()
-    var episodesSeasonTwoUseCase = GetEpisodesSeasonTwoUseCase()
-    var episodesSeasonThreeUseCase = GetEpisodesSeasonThreeUseCase()
-    var episodesSeasonFourUseCase = GetEpisodesSeasonFourUseCase()
     var episodesData = MutableLiveData<List<Episode>>()
-
-
 
     fun onCreate() {
         viewModelScope.launch {

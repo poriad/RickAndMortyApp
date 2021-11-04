@@ -11,7 +11,9 @@ import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.data.model.adapter.CharactersByEpisodeAdapter
 import com.example.rickandmortyapp.databinding.ActivityEpisodeDetailBinding
 import com.example.rickandmortyapp.ui.viewmodel.EpisodeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EpisodeDetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityEpisodeDetailBinding
     private lateinit var adapter: CharactersByEpisodeAdapter
