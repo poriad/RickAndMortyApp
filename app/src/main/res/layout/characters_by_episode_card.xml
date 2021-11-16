@@ -10,6 +10,7 @@
     android:layout_centerHorizontal="true"
     android:layout_margin="15dp"
     android:foreground="@drawable/border_image">
+
     <ImageView
         android:layout_height="170dp"
         android:layout_width="match_parent"
@@ -17,5 +18,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         >
+
     </ImageView>
+    <TextView
+        android:id="@+id/episodeCharacterName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/rickandmortytwo"
+        android:textFontWeight="16"
+        android:textSize="20sp"
+        android:alpha="0"/>
 </androidx.cardview.widget.CardView>

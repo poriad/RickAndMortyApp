@@ -11,5 +11,6 @@ class CharactersByEpisodeViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     fun bind(character: Character) {
         Picasso.get().load(character.image).into(binding.characterImage)
+        binding.episodeCharacterName.text = character.name
     }
 }
