@@ -5,5 +5,5 @@ import javax.inject.Singleton
 
 @Singleton
 class CharacterProvider @Inject constructor() {
-    var character: Character = Character(0, "", "", "", "","")
+    var character: Character = Character(0, "", "", "", "","", Location(""))
 }

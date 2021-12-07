@@ -7,4 +7,5 @@
     <string name="back_button">Back</string>
     <string name="list_character_text">1 Of 34</string>
     <string name="next_button">Next</string>
+    <string name="last_location"><u>Last Known Location:</u></string>
 </resources>

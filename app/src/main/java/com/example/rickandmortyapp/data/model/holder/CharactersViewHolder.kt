@@ -11,7 +11,9 @@ class CharactersViewHolder(view: View) :RecyclerView.ViewHolder(view) {
     private var binding = CharacterCardBinding.bind(view)
 
     fun bind(character: Character) {
-            binding.characterSpecie.text = character.name
-            Picasso.get().load(character.image).into(binding.characterImage)
+        binding.characterSpecie.text = character.name
+        binding.characterState.text = character.status + " - " + character.species
+        binding.lastLocationTwo.text = character.location.name
+        Picasso.get().load(character.image).into(binding.characterImage)
     }
 }
