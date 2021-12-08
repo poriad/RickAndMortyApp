@@ -8,4 +8,10 @@
     <string name="list_character_text">1 Of 34</string>
     <string name="next_button">Next</string>
     <string name="last_location"><u>Last Known Location:</u></string>
+    <string name="status">- <u>Status:</u> </string>
+    <string name="specie">- <u>Specie:</u> </string>
+    <string name="gender">- <u>Gender:</u> </string>
+    <string name="origin">- <u>Origin:</u> </string>
+    <string name="last_location_character_detail">- <u>Last Location:</u> </string>
+    <string name="image_of_the_character">Image of the Character</string>
 </resources>

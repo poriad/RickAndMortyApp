@@ -1,10 +1,7 @@
 package com.example.rickandmortyapp.data.network
 
 import com.example.rickandmortyapp.core.RetrofitHelper
-import com.example.rickandmortyapp.data.model.Character
-import com.example.rickandmortyapp.data.model.Characters
-import com.example.rickandmortyapp.data.model.Episode
-import com.example.rickandmortyapp.data.model.Location
+import com.example.rickandmortyapp.data.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
@@ -19,7 +16,7 @@ class RickAndMortyService @Inject constructor(
     suspend fun getCharacter(id: Int): Character {
         return withContext(Dispatchers.IO) {
             val response = api.getCharacter(id)
-            response.body() ?: Character(0,"", "", "", "", "", Location(""))
+            response.body() ?: Character(0,"", "", "", "", "", Location(""), Origin(""))
         }
     }
 

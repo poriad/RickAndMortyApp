@@ -31,8 +31,9 @@ class CharacterDetailActivity: AppCompatActivity() {
             binding.characterDetailName.text = it.name
             binding.characterDetailStatus.text = it.status
             binding.characterDetailSpecie.text = it.species
-            binding.characterDetailOrigin.text = it.gender
-
+            binding.characterDetailOrigin.text = it.origin.name
+            binding.characterDetailGender.text = it.gender
+            binding.characterDetailLocation.text = it.location.name
         })
 
         charactersViewModel.isLoading.observe(this, {
