@@ -1,10 +1,12 @@
 package com.example.rickandmortyapp.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.databinding.ActivityCharacterDetailBinding
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
@@ -25,6 +27,27 @@ class CharacterDetailActivity: AppCompatActivity() {
         val sessionId = intent.getIntExtra("characterId", 3)
 
         charactersViewModel.onCreateCharacter(sessionId)
+
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.page_2 -> {
+                    startActivity(Intent(this, CharacterActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    false
+                }
+                R.id.page_3 -> {
+                    startActivity(Intent(this, EpisodeActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    false
+                }
+
+                else -> {
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    false
+                }
+            }
+        }
 
         charactersViewModel.characterModel.observe(this, Observer {
             Picasso.get().load(it.image).into(binding.characterDetailImage)

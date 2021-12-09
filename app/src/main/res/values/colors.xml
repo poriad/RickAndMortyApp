@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="rickandmorty">#6bbfe3</color>
     <color name="rickandmortytwo">#47b6db</color>
+    <color name="rickandmorty_home">#23add4</color>
 </resources>

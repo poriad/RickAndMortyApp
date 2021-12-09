@@ -12,7 +12,8 @@
         android:background="@drawable/episode"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"/>
+        app:layout_constraintLeft_toRightOf="parent"
+        android:contentDescription="@string/image_of_rick"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -28,7 +29,7 @@
                 android:id="@+id/episodeDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Episode Detail"
+                android:text="@string/episode_detail"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="23sp"
@@ -38,7 +39,6 @@
                 android:id="@+id/episodeNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="S1E01"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:layout_marginBottom="15dp"
@@ -47,7 +47,6 @@
                 android:id="@+id/episodeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pilot"
                 android:gravity="center"
                 android:textSize="18sp"
                 android:layout_marginBottom="15dp"
@@ -56,7 +55,6 @@
                 android:id="@+id/episodeDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="December 2, 2013"
                 android:gravity="center"
                 android:textSize="18sp"
                 />
@@ -67,7 +65,7 @@
             android:id="@+id/textCharactersAppears"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="In this Episode appears..."
+            android:text="@string/in_this_episode_appears"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:textSize="17sp"

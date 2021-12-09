@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">WikiRick</string>
-    <string name="menu_item_1">Inicio</string>
-    <string name="menu_item_2">Personajes</string>
-    <string name="menu_item_3">Episodios</string>
+    <string name="menu_item_1">Home</string>
+    <string name="menu_item_2">Characters</string>
+    <string name="menu_item_3">Episodes</string>
     <string name="character_title">Detalle del Personaje</string>
     <string name="back_button">Back</string>
     <string name="list_character_text">1 Of 34</string>
@@ -14,4 +14,14 @@
     <string name="origin">- <u>Origin:</u> </string>
     <string name="last_location_character_detail">- <u>Last Location:</u> </string>
     <string name="image_of_the_character">Image of the Character</string>
+    <string name="season_1">Season 1</string>
+    <string name="season_2">Season 2</string>
+    <string name="season_3">Season 3</string>
+    <string name="season_4">Season 4</string>
+    <string name="image_of_rick">Image Of Rick</string>
+    <string name="episode_detail">Episode Detail</string>
+    <string name="in_this_episode_appears">In this Episode appears...</string>
+    <string name="image_of_the_character_detail">Image Of The Character</string>
+    <string name="wikirick">WikiRick</string>
+    <string name="welcome_to_the_wikirick_fan_of_rick_and_morty">Welcome to the WikiRick, fan of Rick and Morty!</string>
 </resources>
