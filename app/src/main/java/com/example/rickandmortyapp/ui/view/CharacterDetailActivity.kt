@@ -1,5 +1,6 @@
 package com.example.rickandmortyapp.ui.view
 
+import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -27,6 +28,20 @@ class CharacterDetailActivity: AppCompatActivity() {
         val sessionId = intent.getIntExtra("characterId", 3)
 
         charactersViewModel.onCreateCharacter(sessionId)
+
+        // Refactor
+        binding.myToolbar.setOnMenuItemClickListener {menuItem ->
+            when(menuItem.itemId) {
+                R.id.backButton -> {
+                    startActivity(Intent(this, CharacterActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+                    false
+                }
+                else -> {
+                    false
+                }
+            }
+        }
 
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {

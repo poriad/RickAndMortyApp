@@ -8,14 +8,39 @@
     tools:context=".ui.view.CharacterDetailActivity"
     android:id="@+id/characterDetailContainer">
 
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/my_toolbar"
+        android:background="@color/rickandmorty"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:elevation="4dp"
+        app:menu="@menu/menu_character_detail">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/rick" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="62dp"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
         android:orientation="vertical">
 
         <LinearLayout
@@ -155,6 +180,7 @@
         android:layout_width="match_parent"
         app:itemIconTint="@color/rickandmorty"
         app:itemTextColor="@color/rickandmorty"
+        android:background="@color/white"
         android:layout_height="50dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
