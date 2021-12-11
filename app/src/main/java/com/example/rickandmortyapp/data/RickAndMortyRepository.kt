@@ -15,13 +15,13 @@ class RickAndMortyRepository @Inject constructor(
     suspend fun getCharacter(id: Int): Character {
         val response = api.getCharacter(id)
         characterProvider.character = response
-        return response;
+        return response
     }
 
     suspend fun getCharacters(page: Int): Characters {
         val response = api.getCharacters(page)
         charactersProvider.characters = response
-        return response;
+        return response
     }
 
     suspend fun getCharactersByEpisode(characters: String): List<Character> {

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
@@ -23,7 +22,7 @@ class CharactersAdapter(private val characters: List<Character>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
-        var item = characters[position]
+        val item = characters[position]
         holder.itemView.setOnClickListener {
             val switchActivityIntent = Intent(contextParent, CharacterDetailActivity::class.java)
             switchActivityIntent.putExtra("characterId", characters[position].id)

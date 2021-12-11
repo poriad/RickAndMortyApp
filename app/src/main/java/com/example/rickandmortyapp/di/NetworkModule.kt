@@ -1,6 +1,5 @@
 package com.example.rickandmortyapp.di
 
-import com.example.rickandmortyapp.core.RetrofitHelper
 import com.example.rickandmortyapp.data.network.RickAndMortyApiClient
 import dagger.Module
 import dagger.Provides
@@ -19,7 +18,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(NetworkModule.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

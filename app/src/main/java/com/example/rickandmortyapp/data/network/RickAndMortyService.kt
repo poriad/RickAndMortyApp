@@ -11,8 +11,6 @@ class RickAndMortyService @Inject constructor(
     private val api: RickAndMortyApiClient
 ) {
 
-    private val retrofit: Retrofit = RetrofitHelper.getRetrofit()
-
     suspend fun getCharacter(id: Int): Character {
         return withContext(Dispatchers.IO) {
             val response = api.getCharacter(id)

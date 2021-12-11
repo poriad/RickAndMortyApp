@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class EpisodeActivity: AppCompatActivity() {
     private lateinit var adapter : EpisodesAdapter
-    private lateinit var binding : ActivityEpisodeBinding;
+    private lateinit var binding : ActivityEpisodeBinding
     private val episodeViewModel : EpisodesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -25,7 +25,7 @@ class EpisodesViewModel @Inject constructor(
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            var result = episodesSeasonOneUseCase()
+            val result = episodesSeasonOneUseCase()
 
             if (result != null) {
                 episodesData.postValue(result)
@@ -36,7 +36,7 @@ class EpisodesViewModel @Inject constructor(
 
     fun onTabClick(tabPosition: Int) {
         viewModelScope.launch {
-            var result: List<Episode>
+            val result: List<Episode>
             isLoading.postValue(true)
             when (tabPosition) {
                 0 -> {

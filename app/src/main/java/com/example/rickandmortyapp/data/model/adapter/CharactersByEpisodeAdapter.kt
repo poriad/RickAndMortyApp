@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.Character
@@ -23,7 +22,7 @@ class CharactersByEpisodeAdapter(private val characters: List<Character>): Recyc
     override fun onBindViewHolder(holder: CharactersByEpisodeViewHolder, position: Int) {
         fImageButton = holder.itemView.findViewById(R.id.characterImage)
 
-        var item = characters[position]
+        val item = characters[position]
         fImageButton.setOnClickListener {
             it.alpha = 0.5F
         }

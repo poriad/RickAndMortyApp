@@ -43,11 +43,8 @@ class CharactersViewModel @Inject constructor(
         }
     }
 
-    // Refactor this
     fun onCreateCharacter(id: Int) {
         viewModelScope.launch {
-
-            // var result = getCharacterUseCase()
             val result = getCharacterUseCase(id)
             isLoading.postValue(true)
 

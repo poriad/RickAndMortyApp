@@ -1,9 +1,9 @@
 package com.example.rickandmortyapp.ui.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmortyapp.R
@@ -55,7 +55,8 @@ class CharacterActivity : AppCompatActivity() {
         binding.rightPageId.setOnClickListener {
             characterPage++
             charactersViewModel.onClick()
-            binding.pageNumber.text = "$characterPage Of 34"
+            val characterPageString = "$characterPage Of 34"
+            binding.pageNumber.text = characterPageString
             binding.leftPageId.isEnabled = characterPage != 1
 
             binding.rightPageId.isEnabled = characterPage != 34
@@ -64,7 +65,8 @@ class CharacterActivity : AppCompatActivity() {
         binding.leftPageId.setOnClickListener {
             characterPage--
             charactersViewModel.onClick()
-            binding.pageNumber.text = "$characterPage Of 34"
+            val characterPageString = "$characterPage Of 34"
+            binding.pageNumber.text = characterPageString
             if (characterPage == 1) {
                 binding.leftPageId.isEnabled = false
             }

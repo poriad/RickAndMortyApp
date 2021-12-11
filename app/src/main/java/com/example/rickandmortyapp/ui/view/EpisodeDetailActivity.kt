@@ -83,7 +83,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
             } + ","
         }
 
-        binding.episodeDetail.paintFlags = Paint.UNDERLINE_TEXT_FLAG;
+        binding.episodeDetail.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         episodeDetailViewModel.onCreate(result)
 

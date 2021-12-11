@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.Episode
 import com.example.rickandmortyapp.data.model.holder.EpisodesViewHolder
-import com.example.rickandmortyapp.ui.view.CharacterDetailActivity
 import com.example.rickandmortyapp.ui.view.EpisodeDetailActivity
 
 class EpisodesAdapter(private val episodes: List<Episode>) : RecyclerView.Adapter<EpisodesViewHolder>() {
@@ -22,7 +21,7 @@ class EpisodesAdapter(private val episodes: List<Episode>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: EpisodesViewHolder, position: Int) {
-        var item = episodes[position]
+        val item = episodes[position]
         holder.itemView.setOnClickListener {
             val switchActivityIntent = Intent(contextParent, EpisodeDetailActivity::class.java)
             switchActivityIntent.putExtra("episodeId", item.id)

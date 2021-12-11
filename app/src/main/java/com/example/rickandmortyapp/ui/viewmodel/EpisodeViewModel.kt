@@ -19,7 +19,7 @@ class EpisodeViewModel @Inject constructor(
     fun onCreate(characters: String) {
         viewModelScope.launch {
             isLoading.postValue(true)
-            var result = getCharactersByEpisodeUseCase(characters)
+            val result = getCharactersByEpisodeUseCase(characters)
             if (result != null) {
                 charactersByEpisode.postValue(result)
                 isLoading.postValue(false)

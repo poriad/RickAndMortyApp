@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.ActivityCharacterDetailBinding
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
@@ -15,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CharacterDetailActivity: AppCompatActivity() {
 
-    private lateinit var binding : ActivityCharacterDetailBinding;
+    private lateinit var binding : ActivityCharacterDetailBinding
     private val charactersViewModel: CharactersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +67,7 @@ class CharacterDetailActivity: AppCompatActivity() {
 
         charactersViewModel.onCreateCharacter(sessionId)
 
-        charactersViewModel.characterModel.observe(this, Observer {
+        charactersViewModel.characterModel.observe(this, {
             Picasso.get().load(it.image).into(binding.characterDetailImage)
             binding.characterDetailName.text = it.name
             binding.characterDetailStatus.text = it.status
