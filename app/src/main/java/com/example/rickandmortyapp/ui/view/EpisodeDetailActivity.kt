@@ -23,23 +23,11 @@ class EpisodeDetailActivity : AppCompatActivity() {
         binding = ActivityEpisodeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val characterArray = intent.getStringArrayExtra("episodeArray") as Array<String>
-        val episodeName = intent.getStringExtra("episodeName")
-        val episodeDate = intent.getStringExtra("episodeDate")
-        val episodeNumber = intent.getStringExtra("episodeNumber")
+        menuConfig()
+        actionsConfig()
+    }
 
-        binding.episodeDate.text = episodeDate
-        binding.episodeName.text = episodeName
-        binding.episodeNumber.text = episodeNumber
-
-        var result = ""
-        characterArray.map { characterURL ->
-            result += characterURL.filter {
-                it.isDigit()
-            } + ","
-        }
-
-        // Refactor
+    private fun menuConfig() {
         binding.myToolbar.setOnMenuItemClickListener {menuItem ->
             when(menuItem.itemId) {
                 R.id.backButton -> {
@@ -76,16 +64,34 @@ class EpisodeDetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun actionsConfig() {
+        val characterArray = intent.getStringArrayExtra("episodeArray") as Array<String>
+        val episodeName = intent.getStringExtra("episodeName")
+        val episodeDate = intent.getStringExtra("episodeDate")
+        val episodeNumber = intent.getStringExtra("episodeNumber")
+
+        binding.episodeDate.text = episodeDate
+        binding.episodeName.text = episodeName
+        binding.episodeNumber.text = episodeNumber
+
+        var result = ""
+        characterArray.map { characterURL ->
+            result += characterURL.filter {
+                it.isDigit()
+            } + ","
+        }
 
         binding.episodeDetail.paintFlags = Paint.UNDERLINE_TEXT_FLAG;
 
         episodeDetailViewModel.onCreate(result)
+
 
         episodeDetailViewModel.charactersByEpisode.observe(this, {
             adapter = CharactersByEpisodeAdapter(it)
             binding.episodeWithCharactersRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             binding.episodeWithCharactersRecyclerView.adapter = adapter
         })
-
     }
 }

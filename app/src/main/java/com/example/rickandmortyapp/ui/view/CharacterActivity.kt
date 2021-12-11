@@ -25,14 +25,11 @@ class CharacterActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        menuConfig()
+        actionsConfig()
+    }
 
-        charactersViewModel.isLoading.observe(this, {
-            binding.progressBar.isVisible = it
-        })
-
-        // Refactor
+    private fun menuConfig() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.page_1 -> {
@@ -50,7 +47,9 @@ class CharacterActivity : AppCompatActivity() {
                 }
             }
         }
-        charactersViewModel.onCreate()
+    }
+
+    private fun actionsConfig() {
         binding.leftPageId.isEnabled = false
 
         binding.rightPageId.setOnClickListener {
@@ -75,11 +74,15 @@ class CharacterActivity : AppCompatActivity() {
             }
         }
 
+        charactersViewModel.isLoading.observe(this, {
+            binding.progressBar.isVisible = it
+        })
+
+        charactersViewModel.onCreate()
         charactersViewModel.charactersModel.observe(this, {
             adapter = CharactersAdapter(it)
             binding.characterRecicler.layoutManager = LinearLayoutManager(this)
             binding.characterRecicler.adapter = adapter
         })
-
     }
 }

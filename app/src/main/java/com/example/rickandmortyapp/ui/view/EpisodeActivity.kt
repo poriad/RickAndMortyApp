@@ -25,21 +25,37 @@ class EpisodeActivity: AppCompatActivity() {
         binding = ActivityEpisodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        menuConfig()
+        actionsConfig()
+    }
 
-        episodeViewModel.isLoading.observe(this, {
-            binding.progressBarEpisode.isVisible = it
-        })
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
 
-        episodeViewModel.onCreate()
+    private fun menuConfig() {
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.page_1 -> {
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+                    false
+                }
+                R.id.page_2 -> {
+                    startActivity(Intent(this, CharacterActivity::class.java))
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+                    false
+                }
 
-        episodeViewModel.episodesData.observe(this, {
-            adapter = EpisodesAdapter(it)
-            binding.episodesRecyclerView.layoutManager = LinearLayoutManager(this)
-            binding.episodesRecyclerView.adapter = adapter
-        })
+                else -> {
+                    false
+                }
+            }
+        }
+    }
 
+    private fun actionsConfig() {
         binding.tabBarEpisodes.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when(tab!!.position) {
@@ -65,29 +81,16 @@ class EpisodeActivity: AppCompatActivity() {
             }
         })
 
-        // Refactor
-        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
-            when(menuItem.itemId) {
-                R.id.page_1 -> {
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-                    false
-                }
-                R.id.page_2 -> {
-                    startActivity(Intent(this, CharacterActivity::class.java))
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-                    false
-                }
+        episodeViewModel.isLoading.observe(this, {
+            binding.progressBarEpisode.isVisible = it
+        })
 
-                else -> {
-                    false
-                }
-            }
-        }
-    }
+        episodeViewModel.onCreate()
 
-    override fun finish() {
-        super.finish()
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        episodeViewModel.episodesData.observe(this, {
+            adapter = EpisodesAdapter(it)
+            binding.episodesRecyclerView.layoutManager = LinearLayoutManager(this)
+            binding.episodesRecyclerView.adapter = adapter
+        })
     }
 }

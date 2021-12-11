@@ -19,7 +19,7 @@
     <string name="season_3">Season 3</string>
     <string name="season_4">Season 4</string>
     <string name="image_of_rick">Image Of Rick</string>
-    <string name="episode_detail">Episode Detail</string>
+    <string name="episode_detail"><u>Episode Detail</u></string>
     <string name="in_this_episode_appears">In this Episode appears...</string>
     <string name="image_of_the_character_detail">Image Of The Character</string>
     <string name="wikirick">WikiRick</string>

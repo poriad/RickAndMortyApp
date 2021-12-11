@@ -27,19 +27,19 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val scrollView = findViewById<DiscreteScrollView>(R.id.homeScroll)
-        mAdapter = HomeAdapter(getData())
-        val wrapper: InfiniteScrollAdapter<*> =
-            InfiniteScrollAdapter.wrap(mAdapter)
-        scrollView.adapter = wrapper
+        menuConfig()
+        actionsConfig()
+    }
 
-        scrollView.setItemTransformer(InfiniteCarouselTransformer())
+    private fun getData(): List<HomeItem> {
+        var homeItemList: MutableList<HomeItem> = mutableListOf()
+        homeItemList.add(HomeItem("Characters", "Search every character that appears in the series", "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-moon-mod-download-35.png"))
+        homeItemList.add(HomeItem("Episodes", "Also you can check the episode, with every character which appears in it!", "https://cdn.custom-cursor.com/cursors/rick_and_morty_mr_meeseeks_box_1457.png"))
+        homeItemList.add(HomeItem("Enjoy!", "This is my first app. Don't hate it too much!", "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-png-lalingla-deviantart-21.png"))
+        return homeItemList
+    }
 
-        // Refactor
-        supportActionBar?.setHomeAsUpIndicator(R.mipmap.rick)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // Refactor
+    private fun menuConfig() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId) {
                 R.id.page_2 -> {
@@ -60,11 +60,13 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun getData(): List<HomeItem> {
-        var homeItemList: MutableList<HomeItem> = mutableListOf()
-        homeItemList.add(HomeItem("Characters", "Search every character that appears in the series", "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-moon-mod-download-35.png"))
-        homeItemList.add(HomeItem("Episodes", "Also you can check the episode, with every character which appears in it!", "https://cdn.custom-cursor.com/cursors/rick_and_morty_mr_meeseeks_box_1457.png"))
-        homeItemList.add(HomeItem("Enjoy!", "This is my first app. Don't hate it too much!", "https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-png-lalingla-deviantart-21.png"))
-        return homeItemList
+    private fun actionsConfig() {
+        val scrollView = findViewById<DiscreteScrollView>(R.id.homeScroll)
+        mAdapter = HomeAdapter(getData())
+        val wrapper: InfiniteScrollAdapter<*> =
+            InfiniteScrollAdapter.wrap(mAdapter)
+        scrollView.adapter = wrapper
+
+        scrollView.setItemTransformer(InfiniteCarouselTransformer())
     }
 }

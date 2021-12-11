@@ -15,8 +15,6 @@ class CharactersViewModel @Inject constructor(
     private val getCharacterUseCase : GetCharacterUseCase,
     private val getCharactersUseCase : GetCharactersUseCase
 ): ViewModel() {
-
-    //var characterModel = MutableLiveData<Character>()
     var charactersModel = MutableLiveData<List<Character>>()
     var characterModel = MutableLiveData<Character>()
     val isLoading = MutableLiveData<Boolean>()
@@ -24,9 +22,7 @@ class CharactersViewModel @Inject constructor(
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
-           // var result = getCharacterUseCase()
             val result = getCharactersUseCase()
-
 
             if (result != null || result.results.isEmpty()) {
                 charactersModel.postValue(result.results)
@@ -46,7 +42,6 @@ class CharactersViewModel @Inject constructor(
             }
         }
     }
-
 
     // Refactor this
     fun onCreateCharacter(id: Int) {

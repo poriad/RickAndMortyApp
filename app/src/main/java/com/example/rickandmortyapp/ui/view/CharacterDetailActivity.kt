@@ -1,6 +1,5 @@
 package com.example.rickandmortyapp.ui.view
 
-import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.rickandmortyapp.R
-import com.example.rickandmortyapp.data.model.adapter.CharactersAdapter
 import com.example.rickandmortyapp.databinding.ActivityCharacterDetailBinding
 import com.example.rickandmortyapp.ui.viewmodel.CharactersViewModel
 import com.squareup.picasso.Picasso
@@ -25,11 +23,11 @@ class CharacterDetailActivity: AppCompatActivity() {
         binding = ActivityCharacterDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sessionId = intent.getIntExtra("characterId", 3)
+        menuConfig()
+        actionsConfig()
+    }
 
-        charactersViewModel.onCreateCharacter(sessionId)
-
-        // Refactor
+    private fun menuConfig() {
         binding.myToolbar.setOnMenuItemClickListener {menuItem ->
             when(menuItem.itemId) {
                 R.id.backButton -> {
@@ -63,6 +61,12 @@ class CharacterDetailActivity: AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun actionsConfig() {
+        val sessionId = intent.getIntExtra("characterId", 3)
+
+        charactersViewModel.onCreateCharacter(sessionId)
 
         charactersViewModel.characterModel.observe(this, Observer {
             Picasso.get().load(it.image).into(binding.characterDetailImage)
