@@ -87,7 +87,6 @@ class EpisodeDetailActivity : AppCompatActivity() {
 
         episodeDetailViewModel.onCreate(result)
 
-
         episodeDetailViewModel.charactersByEpisode.observe(this, {
             adapter = CharactersByEpisodeAdapter(it)
             binding.episodeWithCharactersRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

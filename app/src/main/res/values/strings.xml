@@ -24,4 +24,7 @@
     <string name="image_of_the_character_detail">Image Of The Character</string>
     <string name="wikirick">WikiRick</string>
     <string name="welcome_to_the_wikirick_fan_of_rick_and_morty">Welcome to the WikiRick, fan of Rick and Morty!</string>
+    <string name="numberEpisodeDetail">- Number: </string>
+    <string name="nameEpisodeDetail">- Name: </string>
+    <string name="dateEpisodeDetail">- Date: </string>
 </resources>

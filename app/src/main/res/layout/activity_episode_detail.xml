@@ -61,30 +61,75 @@
                 android:textSize="23sp"
                 android:layout_marginBottom="15dp"
                 />
-            <TextView
-                android:id="@+id/episodeNumber"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="18sp"
-                android:layout_marginBottom="15dp"
-                />
-            <TextView
-                android:id="@+id/episodeName"
+                android:layout_marginBottom="15dp">
+                <TextView
+                    android:text="@string/numberEpisodeDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:paddingRight="5dip"
+                    />
+                <TextView
+                    android:id="@+id/episodeNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="18sp"
-                android:layout_marginBottom="15dp"
-                />
-            <TextView
-                android:id="@+id/episodeDate"
+                android:layout_marginBottom="15dp">
+                <TextView
+                    android:text="@string/nameEpisodeDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:paddingRight="5dip"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:id="@+id/episodeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="18sp"
-                />
-
+                android:layout_marginBottom="15dp">
+                <TextView
+                    android:text="@string/dateEpisodeDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingRight="5dip"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:id="@+id/episodeDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -131,6 +176,9 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/rickandmorty"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

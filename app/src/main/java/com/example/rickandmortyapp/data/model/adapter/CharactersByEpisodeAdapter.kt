@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.data.model.Character
@@ -12,6 +14,9 @@ import com.example.rickandmortyapp.data.model.holder.CharactersByEpisodeViewHold
 class CharactersByEpisodeAdapter(private val characters: List<Character>): RecyclerView.Adapter<CharactersByEpisodeViewHolder>() {
     private var contextParent: Context? = null
     lateinit var fImageButton: ImageView
+    lateinit var characterName: TextView
+    lateinit var episodeCard: CardView
+    private var positionMark: Int = 30000
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersByEpisodeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,11 +25,29 @@ class CharactersByEpisodeAdapter(private val characters: List<Character>): Recyc
     }
 
     override fun onBindViewHolder(holder: CharactersByEpisodeViewHolder, position: Int) {
-        fImageButton = holder.itemView.findViewById(R.id.characterImage)
+        episodeCard = holder.itemView.findViewById(R.id.episodeCardDetail)
+        fImageButton = holder.itemView.findViewById(R.id.episodeCharacterImageDetail)
+        characterName = holder.itemView.findViewById(R.id.episodeCharacterNameDetail)
 
         val item = characters[position]
         fImageButton.setOnClickListener {
-            it.alpha = 0.5F
+            if (positionMark == position) {
+                positionMark = 30000
+                notifyDataSetChanged()
+            } else {
+                positionMark = position
+                notifyDataSetChanged()
+            }
+        }
+
+        if (positionMark == position) {
+            fImageButton.alpha = 0.4F
+            characterName.alpha = 1F
+        }
+
+        if (positionMark != position) {
+            fImageButton.alpha = 1F
+            characterName.alpha = 0F
         }
         return holder.bind(item)
     }

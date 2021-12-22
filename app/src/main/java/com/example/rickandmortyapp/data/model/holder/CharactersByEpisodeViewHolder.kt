@@ -10,7 +10,7 @@ class CharactersByEpisodeViewHolder(view: View): RecyclerView.ViewHolder(view) {
     private var binding = CharactersByEpisodeCardBinding.bind(view)
 
     fun bind(character: Character) {
-        Picasso.get().load(character.image).into(binding.characterImage)
-        binding.episodeCharacterName.text = character.name
+        Picasso.get().load(character.image).into(binding.episodeCharacterImageDetail)
+        binding.episodeCharacterNameDetail.text = character.name
     }
 }

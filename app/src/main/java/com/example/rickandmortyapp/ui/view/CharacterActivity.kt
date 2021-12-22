@@ -1,6 +1,7 @@
 package com.example.rickandmortyapp.ui.view
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +52,9 @@ class CharacterActivity : AppCompatActivity() {
 
     private fun actionsConfig() {
         binding.leftPageId.isEnabled = false
+        if (characterPage == 1) {
+            binding.leftPageId.alpha = 0.5F
+        }
 
         binding.rightPageId.setOnClickListener {
             characterPage++
@@ -58,8 +62,15 @@ class CharacterActivity : AppCompatActivity() {
             val characterPageString = "$characterPage Of 34"
             binding.pageNumber.text = characterPageString
             binding.leftPageId.isEnabled = characterPage != 1
+            if (characterPage > 1 ) {
+                binding.leftPageId.alpha = 1F
+            }
 
+            if (characterPage == 34) {
+                binding.rightPageId.alpha = 0.5F
+            }
             binding.rightPageId.isEnabled = characterPage != 34
+
         }
 
         binding.leftPageId.setOnClickListener {
@@ -69,10 +80,14 @@ class CharacterActivity : AppCompatActivity() {
             binding.pageNumber.text = characterPageString
             if (characterPage == 1) {
                 binding.leftPageId.isEnabled = false
+                binding.leftPageId.alpha = 0.5F
+            } else {
+                binding.leftPageId.alpha = 1F
             }
 
             if (characterPage < 34) {
                 binding.rightPageId.isEnabled = true
+                binding.rightPageId.alpha = 1F
             }
         }
 

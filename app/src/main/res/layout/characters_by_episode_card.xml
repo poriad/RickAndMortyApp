@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:id="@+id/episodeCard"
+    android:id="@+id/episodeCardDetail"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="170dp"
@@ -14,19 +14,19 @@
     <ImageView
         android:layout_height="170dp"
         android:layout_width="match_parent"
-        android:id="@+id/characterImage"
+        android:id="@+id/episodeCharacterImageDetail"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         >
 
     </ImageView>
     <TextView
-        android:id="@+id/episodeCharacterName"
+        android:id="@+id/episodeCharacterNameDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="@color/rickandmortytwo"
-        android:textFontWeight="16"
+        android:textFontWeight="20"
         android:textSize="20sp"
         android:alpha="0"/>
 </androidx.cardview.widget.CardView>
