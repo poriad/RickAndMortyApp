@@ -13,7 +13,7 @@ class CharactersViewHolder(view: View) :RecyclerView.ViewHolder(view) {
     fun bind(character: Character) {
         val characterState = character.status + " - " + character.species
         binding.characterSpecie.text = character.name
-        binding.characterState.text = characterState
+        binding.characterState.text = characterState.capitalize()
         binding.lastLocationTwo.text = character.location.name
         Picasso.get().load(character.image).into(binding.characterImage)
     }
