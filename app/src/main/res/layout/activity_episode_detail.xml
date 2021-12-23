@@ -66,6 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginStart="15dip"
+                android:layout_marginEnd="15dip"
                 android:layout_marginBottom="15dp">
                 <TextView
                     android:text="@string/numberEpisodeDetail"
@@ -89,6 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginStart="15dip"
+                android:layout_marginEnd="15dip"
                 android:layout_marginBottom="15dp">
                 <TextView
                     android:text="@string/nameEpisodeDetail"
@@ -112,6 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginStart="15dip"
+                android:layout_marginEnd="15dip"
                 android:layout_marginBottom="15dp">
                 <TextView
                     android:text="@string/dateEpisodeDetail"
